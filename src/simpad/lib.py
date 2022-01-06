@@ -83,114 +83,32 @@ class SimpadDriver:
             out_report[0].set_raw_data(buffer)
             out_report[0].send()
     
-    def off(self):
+    def setMode(self, mode):
         """
-        Turns simpad lighting off
+        Sets the current mode to the mode specified
+        Usage: SimpadDriver.setMode(<mode>)
+        Possible modes: rainbow, fadeout, on, off, rainbow-onoff, rainbow-fade, keypress, on-off (not caps-sensitive)
+        Please consult the documentation for more information on modes.
         """
-        buffer = [0x00]*65
-        bufferIn = [0x08, 0x03, 0xFF, 0xFF, 0x04, 0x07]
-        for y in range(6):
-            buffer[y] = bufferIn[y-1]
-        buffer[0] = 0x00
-        buffer[6] = bufferIn[5]
-        out_report = self.device.find_output_reports()
-        out_report[0].set_raw_data(buffer)
-        out_report[0].send()
-    
-    def on(self):
-        """
-        Turn simpad lighting to "on"
-        """
-        buffer = [0x00]*65
-        bufferIn = [0x08, 0x02, 0xFF, 0xFF, 0x04, 0x06]
-        for y in range(6):
-            buffer[y] = bufferIn[y-1]
-        buffer[0] = 0x00
-        buffer[6] = bufferIn[5]
-        out_report = self.device.find_output_reports()
-        out_report[0].set_raw_data(buffer)
-        out_report[0].send()
-    
-    def rainbow(self):
-        """
-        Turn simpad lighting mode to "rainbow"
-        """
-        buffer = [0x00]*65
-        bufferIn = [0x08, 0x06, 0xFF, 0xFF, 0x04, 0x02]
-        for y in range(6):
-            buffer[y] = bufferIn[y-1]
-        buffer[0] = 0x00
-        buffer[6] = bufferIn[5]
-        out_report = self.device.find_output_reports()
-        out_report[0].set_raw_data(buffer)
-        out_report[0].send()
-    
-    def fadeout(self):
-        """
-        Turn simpad lighting mode to "fade out"
-        """
-        buffer = [0x00]*65
-        bufferIn = [0x08, 0x00, 0xFF, 0xFF, 0x04, 0x04]
-        for y in range(6):
-            buffer[y] = bufferIn[y-1]
-        buffer[0] = 0x00
-        buffer[6] = bufferIn[5]
-        out_report = self.device.find_output_reports()
-        out_report[0].set_raw_data(buffer)
-        out_report[0].send()
-
-    def keypress(self):
-        """
-        Turn simpad lighting mode to "key press"
-        """
-        buffer = [0x00]*65
-        bufferIn = [0x08, 0x05, 0xFF, 0xFF, 0x04, 0x01]
-        for y in range(6):
-            buffer[y] = bufferIn[y-1]
-        buffer[0] = 0x00
-        buffer[6] = bufferIn[5]
-        out_report = self.device.find_output_reports()
-        out_report[0].set_raw_data(buffer)
-        out_report[0].send()
-    
-    def onoff(self):
-        """
-        Turn simpad lighting mode to On-Off
-        """
-        buffer = [0x00]*65
-        bufferIn = [0x08, 0x08, 0xFF, 0xFF, 0x04, 0x0C]
-        for y in range(6):
-            buffer[y] = bufferIn[y-1]
-        buffer[0] = 0x00
-        buffer[6] = bufferIn[5]
-        out_report = self.device.find_output_reports()
-        out_report[0].set_raw_data(buffer)
-        out_report[0].send()
-    
-    def rainbow_fadeout(self):
-        """
-        Turn simpad lighting mode to "rainbow fadeout"
-        """
-        buffer = [0x00]*65
-        bufferIn = [0x08, 0x07, 0xFF, 0xFF, 0x04, 0x03]
-        for y in range(6):
-            buffer[y] = bufferIn[y-1]
-        buffer[0] = 0x00
-        buffer[6] = bufferIn[5]
-        out_report = self.device.find_output_reports()
-        out_report[0].set_raw_data(buffer)
-        out_report[0].send()
-    
-    def rainbow_onoff(self):
-        """
-        Turn simpad lighting mode to "Rainbow On-Off"
-        """
-        buffer = [0x00]*65
-        bufferIn = [0x08, 0x09, 0xFF, 0xFF, 0x04, 0x0D]
-        for y in range(6):
-            buffer[y] = bufferIn[y-1]
-        buffer[0] = 0x00
-        buffer[6] = bufferIn[5]
-        out_report = self.device.find_output_reports()
-        out_report[0].set_raw_data(buffer)
-        out_report[0].send()
+        valueDict = {
+            "off": [0x08, 0x03, 0xFF, 0xFF, 0x04, 0x07],
+            "on": [0x08, 0x02, 0xFF, 0xFF, 0x04, 0x06],
+            "rainbow": [0x08, 0x06, 0xFF, 0xFF, 0x04, 0x02],
+            "fadeout": [0x08, 0x00, 0xFF, 0xFF, 0x04, 0x04],
+            "keypress": [0x08, 0x05, 0xFF, 0xFF, 0x04, 0x01],
+            "on-off": [0x08, 0x08, 0xFF, 0xFF, 0x04, 0x0C],
+            "rainbow-fade": [0x08, 0x07, 0xFF, 0xFF, 0x04, 0x03],
+            "rainbow-onoff": [0x08, 0x09, 0xFF, 0xFF, 0x04, 0x0D]
+        }
+        if mode in list(valueDict.keys()):
+            bufferIn = valueDict[mode]
+            buffer = [0x00]*65
+            for y in range(6):
+                buffer[y] = bufferIn[y-1]
+            buffer[0] = 0x00
+            buffer[6] = bufferIn[5]
+            out_report = self.device.find_output_reports()
+            out_report[0].set_raw_data(buffer)
+            out_report[0].send()
+        else:
+            raise ValueError(f"No mode found with specified name {mode}")
