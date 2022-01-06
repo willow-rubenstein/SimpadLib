@@ -11,7 +11,7 @@ setup(
     name='simpadlib',
     author='Ashe Muller',
     author_email='contact.notashe@gmail.com',
-    version='1.0.2',
+    version='1.0.3',
     description='A library that allows users to custom-configure their SimPad real-time',
     long_description=getDescription(),
     long_description_content_type='text/markdown',
