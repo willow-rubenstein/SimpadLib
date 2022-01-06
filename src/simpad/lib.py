@@ -5,7 +5,7 @@ Please, do credit me if you use this driver. I actually had to do this from the 
 
 from pywinusb import hid
 
-class SimpadDriver:
+class SimPad:
     def __init__(self):
         self.device = self.get_device()
         if self.device:
