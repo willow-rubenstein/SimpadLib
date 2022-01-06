@@ -65,9 +65,9 @@ class SimPad:
             out_report[0].set_raw_data(buffer)
             out_report[0].send()
     
-    def blackout(self):
+    def clear(self):
         """
-        Resets color to black (Used when transitioning in between levels and the menu, restarting songs (still not fixed yets), etc.)
+        Clears the simpad's current color without turning the device off.
         """
         key = [0x06,0x07]
         for k in range(2):
