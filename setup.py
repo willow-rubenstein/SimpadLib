@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 from pathlib import Path
 
 def getDescription():
@@ -11,12 +11,12 @@ setup(
     name='simpadlib',
     author='Ashe Muller',
     author_email='contact.notashe@gmail.com',
-    version='1.0.3',
+    version='1.0.6',
     description='A library that allows users to custom-configure their SimPad real-time',
     long_description=getDescription(),
     long_description_content_type='text/markdown',
     url='https://github.com/malevtuber/simpadlib',
-    package_dir={'': 'src'},
+    packages=find_packages(),
     python_requires='>=3.10',
     install_requires=['pywinusb>=0.4.2'],
     project_urls={  # Optional
