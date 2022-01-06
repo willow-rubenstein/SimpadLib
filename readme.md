@@ -2,7 +2,7 @@
 
 ## What is this?
 - This is a python library programmed by Ashe Muller that allows users to interface directly with their SimPad devices, and control
-RGB values pragmatically.
+RGB values pragmatically. It allows for you to use all included features in the official SimPad app, but using Python instead.
 - It includes comprehensive research of all of the different functions for the SimPad.
 
 ## What tf is a SimPad?
