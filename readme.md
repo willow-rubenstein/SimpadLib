@@ -1,4 +1,4 @@
-# SimpadLib v1
+# SimpadLib v1.0.6
 
 ## What is this?
 - This is a python library programmed by Ashe Muller that allows users to interface directly with their SimPad devices, and control
