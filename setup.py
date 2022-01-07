@@ -12,7 +12,7 @@ setup(
     author='Ashe Muller',
     author_email='contact.notashe@gmail.com',
     version='1.0.6',
-    description='A library that allows users to custom-configure their SimPad real-time',
+    description='A library that allows users to interface with their SimPad devices in real-time',
     long_description=getDescription(),
     long_description_content_type='text/markdown',
     url='https://github.com/malevtuber/simpadlib',
