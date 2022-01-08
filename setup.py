@@ -29,7 +29,7 @@ setup(
     name='simpadlib',
     author='Ashe Muller',
     author_email='contact.notashe@gmail.com',
-    version='2.0.0',
+    version='2.0.1',
     description='A library that allows users to interface with their SimPad devices in real-time',
     long_description=description,
     long_description_content_type='text/markdown',
