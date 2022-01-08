@@ -1,4 +1,4 @@
-# SimpadLib v1.1
+# SimpadLib v1.7
 
 ### Example Usages
 ```py
