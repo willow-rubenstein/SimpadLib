@@ -1,12 +1,28 @@
 from setuptools import setup, find_packages
 from pathlib import Path
 
+## I'm just going to manually do this for now.
+## I don't think there is an easy way to fix the bug with readme files.
+description = """\
+# SimpadLib v2.1
 
-def get_description():
-    try:
-        return (Path(__file__).parent / "PIP_README.md").read_text()
-    except:
-        return ""
+### Example Usages
+```py
+from simpad.lib import simpad
+
+sim = simpad.Controller() # Initialize the SimPad class
+sim.changeRGB("#FF000", keys=simpad.Keys.Both) # Change all keys to color "#FF0000"
+sim.changeRGB("#00FF00", keys=simpad.keys.Left) # Change the left key's color to "#00FF00"
+```
+
+```py
+from simpad.lib import simpad
+
+sim = simpad.Controller() # Initialize the SimPad class
+sim.changeRGB("#FF000", keys=simpad.Keys.Both, brightness="25%") # Change all keys to color "#FF0000", but only with 25% brightness
+sim.changeRGB("#00FF00", keys=simpad.keys.Left, brightness="50%") # Change the left key's color to "#00FF00", but only with 50% brightness
+```
+"""
 
 
 setup(
@@ -15,7 +31,7 @@ setup(
     author_email='contact.notashe@gmail.com',
     version='2.0.0',
     description='A library that allows users to interface with their SimPad devices in real-time',
-    long_description=get_description(),
+    long_description=description,
     long_description_content_type='text/markdown',
     url='https://github.com/malevtuber/simpadlib',
     packages=find_packages(),
