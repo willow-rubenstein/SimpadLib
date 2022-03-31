@@ -1,5 +1,5 @@
 """
-This script was created entirely by Ashe Muller over the course of literally an entire day.
+This script was created entirely by Willow Rubenstein over the course of literally an entire day.
 Please, do credit me if you use this driver. I actually had to do this from the bottom up.
 """
 
