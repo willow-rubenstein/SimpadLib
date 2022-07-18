@@ -9,5 +9,5 @@ RGB values pragmatically. It allows for you to use all included features in the 
 - A 2-key keypad used for osu! and similar 2-key rhythm games
 
 # Roadmap
-- NodeJS port by the end of January
-- That's it. I fucking hate C langs. You're only getting Python and JS out of me lmao
+- NodeJS port by the end of January (this never happened btw)
+- I begrudgingly made a C# library on 7/17/22, fight me
